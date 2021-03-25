@@ -1,4 +1,4 @@
-const nomePetshop = "PETSHOP AVANADE"
+const nomePetshop = "PETSHOP AVANADE";
 
 let pets = [
     {
@@ -46,6 +46,25 @@ const listarPets = () => {
     }
 }
 
-listarPets();
+const vacinarPet = () => {
+    let nomev = "Gato";
+    for(let pet of pets){
+        if(pet.nome == nomev)
+        {
+            if(pet.vacinado == true)
+            {
+                console.log(`Ops, ${pet.nome} já está vacinado!`);
+            }
+            else
+            {
+                pet.vacinado = true;
+                console.log(`${pet.nome} foi vacinado com sucesso!`);
+            }
+        }
+    }
+}
+
+// listarPets();
+vacinarPet();
 
 // console.log(pet);
