@@ -77,8 +77,29 @@ const campanhaVacina = () => {
     console.log(`${cont} pets foram vaciados nessa campanha!`)
 }
 
+const novocliente = () => {
+    let novo = {
+        nome: 'Peixe',
+        tipo: 'cavalo',
+        idade: 5,
+        raca: 'arabe',
+        peso: 500,
+        tutor: 'Silva',
+        contato: '(81) 99876-9876',
+        vacinado: false,
+        servicos: ['banho', 'vacina']
+    }
+
+    pets.push(novo);
+
+    for(let pet of pets){
+        console.log(`O nome do pet é: ${pet.nome}`);
+    }
+}
+
 // listarPets();
 // vacinarPet();
-campanhaVacina();
+// campanhaVacina();
+novocliente();
 
 // console.log(pet);
