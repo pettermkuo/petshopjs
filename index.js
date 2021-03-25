@@ -64,7 +64,21 @@ const vacinarPet = () => {
     }
 }
 
+const campanhaVacina = () => {
+    let cont = 0;
+    for(let pet of pets)
+    {
+        if(pet.vacinado == false)
+        {
+            pet.vacinado = true;
+            cont++;
+        }
+    }
+    console.log(`${cont} pets foram vaciados nessa campanha!`)
+}
+
 // listarPets();
-vacinarPet();
+// vacinarPet();
+campanhaVacina();
 
 // console.log(pet);
