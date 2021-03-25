@@ -91,15 +91,11 @@ const novocliente = () => {
     }
 
     pets.push(novo);
-
-    for(let pet of pets){
-        console.log(`O nome do pet é: ${pet.nome}`);
-    }
 }
 
-// listarPets();
 // vacinarPet();
 // campanhaVacina();
 novocliente();
+listarPets();
 
 // console.log(pet);
