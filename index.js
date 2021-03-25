@@ -37,8 +37,12 @@ let pets = [
 ];
 
 const listarPets = () => {
-    for(let i = 0; i < pets.length; i++){
-        console.log(`O nome do pet é: ${pets[i].nome}`);
+    // for(let i = 0; i < pets.length; i++){
+    for(let pet of pets){
+        // concatenacao vvv
+        // console.log(pets[i].nome + " " + pets[i].raca);
+        // template string vvv
+        console.log(`O nome do pet é: ${pet.nome}`);
     }
 }
 
