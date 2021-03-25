@@ -2,15 +2,15 @@ const nomePetshop = "PETSHOP AVANADE"
 
 let pets = [
     {
-    nome: 'Gato',
-    tipo: 'cachorro',
-    idade: 3,
-    raca: 'husky',
-    peso: 3,
-    tutor: 'Steve',
-    contato: '(81) 91414-1414',
-    vacinado: false,
-    servicos: ['tosa', 'banho', 'vacina']
+        nome: 'Gato',
+        tipo: 'cachorro',
+        idade: 3,
+        raca: 'husky',
+        peso: 3,
+        tutor: 'Steve',
+        contato: '(81) 91414-1414',
+        vacinado: false,
+        servicos: ['tosa', 'banho', 'vacina']
     },
     {
         nome: 'Passaro',
