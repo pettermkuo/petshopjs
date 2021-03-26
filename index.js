@@ -116,5 +116,3 @@ listarPets();
 darBanhoPet(pets[0]);
 tosarPet(pets[1]);
 apararUnhasPet(pets[2]);
-
-// console.log(pet);
