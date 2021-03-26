@@ -74,7 +74,7 @@ const tosarPet = pet => {
     console.log(`${pet.nome} está com cabelinho na régua :)`);
 };
 
-const apararUnhasPet = nome => {
+const apararUnhasPet = pet => {
     pet.servicos.push('corte de unhas' + ' ' + moment().format('DD-MM-YYYY'));
     console.log(`${pet.nome} está de unhas aparadas!`);
 };
