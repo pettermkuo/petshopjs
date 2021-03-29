@@ -1,12 +1,14 @@
 const moment= require('moment');
-let arq = require('./dadosPet.json');
+const fs = require('fs');
+const fileName = './dadosPet.json';
 const nomePetshop = "PETSHOP AVANADE";
 
-let pets = arq.dados;
+let file = fs.readFileSync(fileName);
+file = JSON.parse(file);
 
 const retornaIndex = nome => {
     let cont = 0;
-    for(let pet of pets){
+    for(let pet of file.dados){
         if(pet.nome == nome){
             return cont;
         }else{
@@ -18,7 +20,7 @@ const retornaIndex = nome => {
 
 const listarPets = () => {
     // for(let i = 0; i < pets.length; i++){
-    for(let pet of pets){
+    for(let pet of file.dados){
         // concatenacao vvv
         // console.log(pets[i].nome + " " + pets[i].raca);
         // template string vvv
@@ -38,7 +40,7 @@ const vacinarPet = pet => {
 
 const campanhaVacina = () => {
     let cont = 0;
-    for(let pet of pets)
+    for(let pet of file.dados)
     {
         if(!pet.vacinado)
         {
@@ -61,7 +63,7 @@ const novocliente = () => {
         vacinado: false,
         servicos: ['banho 26/03/2021', 'vacina 26/03/2021']
     }
-    pets.push(novo);
+    file.dados.push(novo);
 }
 
 const darBanhoPet = pet => {
@@ -81,14 +83,24 @@ const apararUnhasPet = pet => {
 
 const atenderCliente = (nome,servicos) => {
     let index = retornaIndex(nome);
-    index == -1 ?  console.log("Nome de pet inválido.") : servicos(pets[index]);
+    index == -1 ?  console.log("Nome de pet inválido.") : servicos(file.dados[index]);
 }
 
-//vacinarPet(pets[2]);
+const atualizarBancodDaddos = () => {
+    /*fs.writeFile(fileName, JSON.stringify(file, null, 2), function writeJSON(err){
+        if (err) return console.log(err);
+        console.log(JSON.stringify(file, null, 2));
+        console.log('writing to ' + fileName);
+    });*/
+    fs.writeFile(fileName, JSON.stringify(file, null, 2), 'utf-8');
+}
+
+//vacinarPet(file.dados[2]);
 //campanhaVacina();
 //novocliente();
-//listarPets();
-//darBanhoPet(pets[0]);
-//tosarPet(pets[1]);
-//apararUnhasPet(pets[2]);
-atenderCliente(pets[0].nome,darBanhoPet)
+listarPets();
+//darBanhoPet(file.dados[0]);
+//tosarPet(file.dados[1]);
+//apararUnhasPet(file.dados[2]);
+atenderCliente(file.dados[0].nome,darBanhoPet);
+//atualizarBancodDaddos();
