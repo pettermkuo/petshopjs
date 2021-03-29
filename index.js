@@ -83,7 +83,13 @@ const apararUnhasPet = pet => {
 
 const atenderCliente = (nome,servicos) => {
     let index = retornaIndex(nome);
-    index == -1 ?  console.log("Nome de pet inválido.") : servicos(file.dados[index]);
+    if(index == -1)  {
+        console.log("Nome de pet inválido.");
+    }else{
+        console.log(`Bem vindo ${file.dados[index].tutor}!`);
+        servicos(file.dados[index]);
+        console.log(`Volte sempre ${file.dados[index].tutor}!`);
+    } 
 }
 
 const atualizarBancodDaddos = () => {
