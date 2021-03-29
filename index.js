@@ -3,7 +3,7 @@ const fs = require('fs');
 const fileName = './dadosPet.json';
 const nomePetshop = "PETSHOP AVANADE";
 
-let file = fs.readFileSync(fileName);
+let file = fs.readFileSync(fileName, 'UTF-8');
 file = JSON.parse(file);
 
 const retornaIndex = nome => {
@@ -87,18 +87,20 @@ const atenderCliente = (nome,servicos) => {
 }
 
 const atualizarBancodDaddos = () => {
+    //não usar quebra de linhas para evitar ocupar espaço extra na memoria.
     /*fs.writeFile(fileName, JSON.stringify(file, null, 2), function writeJSON(err){
         if (err) return console.log(err);
         console.log(JSON.stringify(file, null, 2));
         console.log('writing to ' + fileName);
     });*/
-    fs.writeFile(fileName, JSON.stringify(file, null, 2), 'utf-8');
+    console.log('writing to ' + fileName);
+    fs.writeFileSync(fileName, JSON.stringify(file, null, 2), 'utf-8');
 }
 
 //vacinarPet(file.dados[2]);
 //campanhaVacina();
 //novocliente();
-listarPets();
+//listarPets();
 //darBanhoPet(file.dados[0]);
 //tosarPet(file.dados[1]);
 //apararUnhasPet(file.dados[2]);
