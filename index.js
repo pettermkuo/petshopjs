@@ -3,7 +3,7 @@ const fs = require('fs');
 const fileName = './dadosPet.json';
 const nomePetshop = "PETSHOP AVANADE";
 
-let file = fs.readFileSync(fileName, 'UTF-8');
+let file = fs.readFileSync(fileName, 'utf-8');
 file = JSON.parse(file);
 
 const atualizarBancodDaddos = () => {
@@ -13,6 +13,10 @@ const atualizarBancodDaddos = () => {
         console.log(JSON.stringify(file, null, 2));
         console.log('writing to ' + fileName);
     });*/
+    // && E - AND
+    // || OU - OR
+    // == verifica valores iguais
+    // === verifica valores e tipos iguais
     console.log('writing to ' + fileName);
     fs.writeFileSync(fileName, JSON.stringify(file, null, 2), 'utf-8');
 }
@@ -43,7 +47,7 @@ const listarPets = () => {
         console.log(`${pet.nome}, ${pet.idade} anos, ${pet.tipo}, ${pet.raca}, ${(pet.vacinado) ? 'vacinado': 'não vacinado'}`);
 
         pet.servicos.forEach((servico) => {
-            console.log(`${servico}`);
+            console.log(`${servico.nome} ${servico.data}`);
         })
     })
 }
@@ -64,7 +68,7 @@ const campanhaVacina = () => {
         vacinarPet(pet);
         qtdvacinados++;
     })
-    console.log(`${cont} pets foram vaciados nessa campanha!`)
+    console.log(`${cont} pets foram vaciados nessa campanha!`);
 }
 
 const novocliente = () => {
@@ -77,23 +81,32 @@ const novocliente = () => {
         tutor: 'Silva',
         contato: '(81) 99876-9876',
         vacinado: false,
-        servicos: ['banho 26/03/2021', 'vacina 26/03/2021']
+        servicos: []
     }
     file.dados.push(novo);
 }
 
 const darBanhoPet = pet => {
-    pet.servicos.push('banho' + ' ' + moment().format('DD-MM-YYYY'));
+    pet.servicos.push({
+        nome: 'banho', 
+        data: moment().format('DD-MM-YYYY')
+    });
     console.log(`${pet.nome} está de banho tomado!`);
 }
 
 const tosarPet = pet => {
-    pet.servicos.push('tosa' + ' ' + moment().format('DD-MM-YYYY'));
+    pet.servicos.push({
+        nome: 'tosa',
+        data: moment().format('DD-MM-YYYY')
+    });
     console.log(`${pet.nome} está com cabelinho na régua :)`);
 }
 
 const apararUnhasPet = pet => {
-    pet.servicos.push('corte de unhas' + ' ' + moment().format('DD-MM-YYYY'));
+    pet.servicos.push({
+        nome: 'corte de unhas',
+        data: moment().format('DD-MM-YYYY')
+    });
     console.log(`${pet.nome} está de unhas aparadas!`);
 }
 
@@ -102,9 +115,10 @@ const atenderCliente = (nome,servicos) => {
     if(index == -1)  {
         console.log("Nome de pet inválido.");
     }else{
-        console.log(`Bem vindo ${file.dados[index].tutor}!`);
+        let {tutor} = file.dados[index]
+        console.log(`Bem vindo ${tutor}!`);
         servicos(file.dados[index]);
-        console.log(`Volte sempre ${file.dados[index].tutor}!`);
+        console.log(`Volte sempre ${tutor}!`);
     } 
 }
 
@@ -120,9 +134,9 @@ const clientePremium = pet => {
 
     if(servicos >= 5)
     {
-        console.log("Parabens!");
+        console.log("Presente!");
     }else{
-        console.log("Ainda não chegou lá!")
+        console.log("Ainda não!")
     }
 }
 

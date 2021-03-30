@@ -10,8 +10,14 @@
       "contato": "(81) 91414-1414",
       "vacinado": false,
       "servicos": [
-        "vacina 21/03/2021",
-        "banho 29-03-2021"
+        {
+          "nome" : "vacina",  
+          "data" : "21/03/2021"
+        },
+        {
+          "nome" : "banho", 
+          "data" : "29-03-2021"
+        }
       ]
     },
     {
@@ -24,7 +30,10 @@
       "contato": "(81) 98282-8383",
       "vacinado": false,
       "servicos": [
-        "banho 16/03/2021"
+        {
+          "nome" : "banho", 
+          "data" : "16/03/2021"
+        }
       ]
     },
     {
@@ -37,8 +46,14 @@
       "contato": "(81) 99988-7766",
       "vacinado": true,
       "servicos": [
-        "tosa 18/03/2021",
-        "banho 18/03/2021"
+        {
+          "nome" : "tosa",
+          "data" : "18/03/2021"
+        },
+        {
+          "nome" : "banho",
+          "data" : "18/03/2021"
+        }
       ]
     }
   ]
