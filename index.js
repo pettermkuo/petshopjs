@@ -83,7 +83,17 @@ const novocliente = () => {
         vacinado: false,
         servicos: []
     }
-    file.dados.push(novo);
+    file.dados.push(...novo);
+}
+
+const adicionarClientes = (...clientes) => {
+    clientes.forEach((novocliente) => {
+        file.dados.push(novocliente);
+    })
+
+    clientes.forEach((pet) =>{
+        console.log(`${pet.nome} foi cadastrado com sucesso!`);
+    })
 }
 
 const darBanhoPet = pet => {
